@@ -28,8 +28,12 @@
       ],
       "secrets": [
         {
-          "name": "API_KEYS",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-2:909207749089:secret:research_apikeys-ffAqjs"
+          "name": "OPENAI_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:909207749089:secret:research_apikeys-ffAqjs:OPENAI_API_KEY::"
+        },
+        {
+          "name": "TAVILY_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:909207749089:secret:research_apikeys-ffAqjs:TAVILY_API_KEY::"
         }
       ],
       "logConfiguration": {
