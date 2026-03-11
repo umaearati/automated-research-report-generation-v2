@@ -1,0 +1,46 @@
+{
+  "family": "research_analyst",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::909207749089:role/lang_role",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "containerDefinitions": [
+    {
+      "name": "research-analyst-container",
+      "image": "909207749089.dkr.ecr.eu-west-2.amazonaws.com/research_analyst:latest",
+      "cpu": 1024,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "name": "research-analyst-container-8000-tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "production"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "API_KEYS",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:909207749089:secret:research_apikeys-ffAqjs"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/research_analyst",
+          "awslogs-region": "eu-west-2",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}
