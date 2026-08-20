@@ -1,0 +1,50 @@
+{
+  "family": "research_analyst",
+  "networkMode": "awsvpc",
+  "executionRoleArn": "arn:aws:iam::385168914157:role/research_role_a",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "containerDefinitions": [
+    {
+      "name": "research-analyst-container",
+      "image": "385168914157.dkr.ecr.eu-west-2.amazonaws.com/research_analyst:latest",
+      "cpu": 1024,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp",
+          "name": "research-analyst-container-8000-tcp",
+          "appProtocol": "http"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ENV",
+          "value": "production"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "OPENAI_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:385168914157:secret:research_secret_apikeys_a-NuF4IU:OPENAI_API_KEY::"
+        },
+        {
+          "name": "TAVILY_API_KEY",
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:385168914157:secret:research_secret_apikeys_a-NuF4IU:TAVILY_API_KEY::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/research_analyst",
+          "awslogs-region": "eu-west-2",
+          "awslogs-stream-prefix": "ecs",
+          "awslogs-create-group": "true"
+        }
+      }
+    }
+  ]
+}

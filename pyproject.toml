@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "research-and-analyst"
+version = "0.1.0"
+description = "Automated research report generation"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "ipykernel>=6.30.1",
+    "langchain-community>=0.3.30",
+    "langchain-core>=0.3.78",
+    "langchain-google-genai==2.1.8",
+    "langchain-groq==0.3.6",
+    "langchain-openai==0.3.32",
+    "langchain-huggingface==0.1.2",
+    "langgraph>=0.6.8",
+    "structlog==25.4.0",
+    "tavily-python>=0.7.12",
+    "wikipedia>=1.4.0",
+    "presidio-analyzer==2.2.358",
+    "presidio-anonymizer==2.2.358",
+    "spacy==3.8.7",
+    "redis==5.2.1",
+    "pinecone==5.4.2",
+    "ragas==0.2.15",
+    "datasets==3.2.0",
+    "langsmith>=0.3.45,<1.0.0",
+    "langfuse==2.60.5",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["research_and_analyst*"]
+
