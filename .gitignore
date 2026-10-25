@@ -17,3 +17,5 @@ generated_report/users.db
 src/generated_report/
 src/research_and_analyst/notebook/*.pdf
 users.db
+
+generated_report/

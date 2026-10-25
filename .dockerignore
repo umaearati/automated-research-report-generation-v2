@@ -1,0 +1,13 @@
+.venv
+venv
+.git
+.github
+__pycache__
+*.pyc
+.env
+users.db
+logs
+generated_report
+src/generated_report
+*.zip
+.DS_Store

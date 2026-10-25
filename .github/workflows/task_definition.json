@@ -1,14 +1,14 @@
 {
   "family": "research_analyst",
   "networkMode": "awsvpc",
-  "executionRoleArn": "arn:aws:iam::385168914157:role/research_role_a",
+  "executionRoleArn": "arn:aws:iam::789512906392:role/research_role_a",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "1024",
   "memory": "3072",
   "containerDefinitions": [
     {
       "name": "research-analyst-container",
-      "image": "385168914157.dkr.ecr.eu-west-2.amazonaws.com/research_analyst:latest",
+      "image": "789512906392.dkr.ecr.eu-west-2.amazonaws.com/research_role:latest",
       "cpu": 1024,
       "essential": true,
       "portMappings": [
@@ -29,11 +29,11 @@
       "secrets": [
         {
           "name": "OPENAI_API_KEY",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-2:385168914157:secret:research_secret_apikeys_a-NuF4IU:OPENAI_API_KEY::"
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:789512906392:secret:research_secret_apikeys_a-F4OxVv:OPENAI_API_KEY::"
         },
         {
           "name": "TAVILY_API_KEY",
-          "valueFrom": "arn:aws:secretsmanager:eu-west-2:385168914157:secret:research_secret_apikeys_a-NuF4IU:TAVILY_API_KEY::"
+          "valueFrom": "arn:aws:secretsmanager:eu-west-2:789512906392:secret:research_secret_apikeys_a-F4OxVv:TAVILY_API_KEY::"
         }
       ],
       "logConfiguration": {
