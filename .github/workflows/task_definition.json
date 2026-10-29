@@ -8,7 +8,7 @@
   "containerDefinitions": [
     {
       "name": "research-analyst-container",
-      "image": "789512906392.dkr.ecr.eu-west-2.amazonaws.com/research_role:latest",
+      "image": "789512906392.dkr.ecr.eu-west-2.amazonaws.com/research_analyst:latest",
       "cpu": 1024,
       "essential": true,
       "portMappings": [
