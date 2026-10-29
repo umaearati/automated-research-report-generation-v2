@@ -6,7 +6,7 @@ on:
       - completed
 env:
   AWS_REGION: eu-west-2
-  ECR_REPOSITORY: research_role
+  ECR_REPOSITORY: research_analyst
   ECS_SERVICE: research_analyst-service-71edydj4
   ECS_CLUSTER: research_cluster_a
   ECS_TASK_DEFINITION: .github/workflows/task_definition.json
