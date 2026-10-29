@@ -19,3 +19,7 @@ src/research_and_analyst/notebook/*.pdf
 users.db
 
 generated_report/
+
+cmd.sh
+
+.DS_Store
